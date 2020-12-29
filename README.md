@@ -6,7 +6,7 @@ This repository houses the source code for algorithms related to our research on
 - Verify whether a graph is a petrie-complete MPG (Not yet implemented)
 
 ## Getting Started (Cloning)
-This instructions is for Mac users.
+This set of instructions is for Mac users.
 1. Install Git, refer to [Git - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 2. Open Terminal.
 3. Change directory to a desired directory for the folder to be cloned.
@@ -17,4 +17,4 @@ This instructions is for Mac users.
 1. Open Terminal.
 2. Change directory to `petrie-volume` folder.
 3. Run `javac convexVolume/volumeCalculator.java` to compile `volumeCalculator.java`.
-4. Run `java convexVolume/volumeCalcalator new` to start the calculator.
+4. Run `java convexVolume/volumeCalculator new` to start the calculator.
