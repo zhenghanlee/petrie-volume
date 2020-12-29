@@ -1,0 +1,9 @@
+#convexVolume
+algorithmMethods.class
+algorithmUtils.class
+algorithmUtils$edge.class
+algorithmUtils$face.class
+algorithmUtils$point.class
+algorithmUtils$vector.class
+volumeCalculator.class
+mainAlgorithms.class

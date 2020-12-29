@@ -1,8 +1,11 @@
-import algorithmUtils;
+package convexVolume;
 import java.util.ArrayList;
 import java.util.List;
 
+import convexVolume.algorithmUtils.*;
+
 public class algorithmMethods {
+    
     static List ConvexAlgorithm2D(List<point> coplanarSet){
         List<face> triangulatedFacets = new ArrayList<>();
 
@@ -166,7 +169,6 @@ public class algorithmMethods {
                 }
             }
         }
-        System.out.println(redundantpoints.size());
         for (int i = 0; i < redundantpoints.size(); i++){
             randomSet.remove(redundantpoints.get(i));
         }
