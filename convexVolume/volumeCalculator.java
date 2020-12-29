@@ -16,7 +16,7 @@ class volumeCalculator{
 
         if (args.length > 0 && args[0].equalsIgnoreCase("new")){
 
-            System.out.println("Input coordicates of the points in the following format (spaces between coordinates): <x-coordinate> <y-coordinate> <z-coordinate>");
+            System.out.println("Input coordinates of the points in the following format (spaces between coordinates): <x-coordinate> <y-coordinate> <z-coordinate>");
             System.out.println("Enter without input to evaluate convex volume.");
 
             boolean finish = false;
