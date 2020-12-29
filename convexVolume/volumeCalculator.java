@@ -2,22 +2,42 @@ package convexVolume;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.lang.StringBuilder;
 
 import convexVolume.algorithmUtils.*;
 
 class volumeCalculator{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        point p = new point(0, 0, 0);
-        point p2 = new point(1, 0, 0);
-        point p3 = new point(0, 1, 0);
-        point p4 = new point(0, 0, 1);
-        points.add(p);
-        points.add(p2);
-        points.add(p3);
-        points.add(p4);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        try {
+        if (args.length > 0 && args[0].equalsIgnoreCase("new")){
+
+            System.out.println("Input coordicates of the points in the following format (spaces between coordinates): <x-coordinate> <y-coordinate> <z-coordinate>");
+            System.out.println("Enter without input to evaluate convex volume.");
+
+            boolean finish = false;
+            int inputCount = 1;
+            while(!finish){
+                System.out.printf("Point %d: ", inputCount);
+                String string = reader.readLine();
+                StringBuilder input = new StringBuilder(string);
+                if (input.length() == 0){
+                    finish = true;
+                } else{
+                    input.append(" ");
+                    float x = getNumber(input);
+                    float y = getNumber(input);
+                    float z = getNumber(input);
+                    point p = new point(x, y, z);
+                    points.add(p);
+                    inputCount += 1;
+                }
+            }
+
             points = algorithmMethods.RemoveRepeatedPoints(points);
             points = algorithmMethods.RemoveColinearPoints(points);
             if(points.size()<=3){
@@ -31,13 +51,23 @@ class volumeCalculator{
                 float volume = mainAlgorithms.ConvexVolumeAlgorithm(facets);
                 System.out.println("Volume = " + volume);
             }
+            // catch(Exception e){
+            //     System.out.println("Unable to evaluate volume.");
+            // }
         }
-        catch (Error e){
-            System.out.println("Unable to evaluate volume.");
-        }
-        catch(Exception e){
-            System.out.println("Unable to evaluate volume.");
-        }
+        
+    }
+
+    static float getNumber(StringBuilder string){
+        int firstSpace = string.indexOf(" ");
+        String numbertext = string.substring(0, firstSpace);
+        string.delete(0, firstSpace + 1);
+        try {
+            return Float.parseFloat(numbertext);
+        } catch(Exception e){
+            System.out.println("Input format not adhered to!");
+            throw e;
+        }        
     }
 
     static List<point> points = new ArrayList<>();//Defining points.
